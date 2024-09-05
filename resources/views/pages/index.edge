@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 h-screen flex justify-center items-center">
+    <script>
+        async function postTask() {
+            const description = document.querySelector('input').value;
+            await fetch('http://localhost:3333/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ "description": description })
+            })
+            location.reload()
+        }
+        async function updateTask(id) {
+            const description = prompt('Entrer la nouvelle description de la tâche')
+            await fetch('http://localhost:3333/' + id, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ "description": description })
+            })
+            location.reload()
+        }
+        async function deleteTask(id) {
+            await fetch('http://localhost:3333/' + id, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            location.reload()
+        }
+    </script>
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-4 text-center">My To-Do List</h1>
+
+        <form class="flex mb-4">
+            <input type="text" name="title" placeholder="Add a new task" class="flex-1 p-2 border border-gray-300 rounded-l-md focus:outline-none" required>
+            <button type="button" onclick="postTask()" class="bg-blue-500 text-white px-4 py-2 rounded-r-md">Add</button>
+        </form>
+
+        <ul>
+            @each(task in tasks)
+                <li class="flex justify-between items-center bg-gray-50 p-2 rounded-md mb-2">
+                    <span class="text-gray-800 flex-1">{{ task.description }}</span>
+                    <div class="flex space-x-2">
+                        <img src="resources/images/edit.png" width="20px" height="20px" alt="Edit task" onclick="updateTask({{ task.id }})">
+                        <img src="resources/images/delete.png" width="20px" height="20px" alt="Delete task" onclick="deleteTask({{ task.id }})">
+                    </div>
+                </li>
+            @end
+        </ul>
+    </div>
+</body>
+</html>
