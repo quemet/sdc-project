@@ -1,5 +1,17 @@
 # sdc-project
 
+## Dépendances pour ce projet
+
+- ### Docker
+  - Go on the official Docker [website]()
+- ### Node
+  - Go on the official Node [website](https://nodejs.org/fr)
+  - Click on the installer LTS
+  - Follow the guide and here we are node is installed
+
+- ### Framework Adonis.js
+  - Ouvre un terminal est tapé **npm i -g @adonisjs/cli**
+
 ## Setup
 
 Clone le répertoire pour en faire une copie locale :  
