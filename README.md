@@ -3,11 +3,13 @@
 ## Dépendances pour ce projet
 
 - ### Docker
-  - Go on the official Docker [website]()
+  - Aller sur le site officiel de [Docker](https://www.docker.com/products/docker-desktop/)
+  - Cliquer sur l'installer qui correspond à votre OS
+  - Suiver l'installer et voila Docker est installé
 - ### Node
-  - Go on the official Node [website](https://nodejs.org/fr)
-  - Click on the installer LTS
-  - Follow the guide and here we are node is installed
+  - Aller sur le site officiel de [Node](https://nodejs.org/fr)
+  - Cliquer sur l'installer LTS
+  - Suiver le guide et voila Node est installé
 
 - ### Framework Adonis.js
   - Ouvre un terminal est tapé **npm i -g @adonisjs/cli**
